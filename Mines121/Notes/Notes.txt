@@ -1,0 +1,26 @@
+Neigbor Checking Notes
+
+How does the function work?
+	-Check if cell is on a corner or an edge (if row or col index is a max or min)
+		-Corner - cell has 3 neighboring cells 
+		-Edge - cell has 5 neighboring cells 
+	-Count the number of adjacent cells that contain MINES:
+		-If cell has zero mines:
+			-Open the surrounding cells (recursive function)
+		-If cell has 1 to 8 mines:
+			-Do NOT call clearing function on this cell
+			-Print the number of mines (set image to one of the number tiles)
+
+From http://www.techuser.net/minecascade.html:
+
+    1. If current square is a mine gameover, otherwise uncover square
+    2. Count mines adjacent to current square
+    3. If adjacent mine count is ZERO, uncover all adjacent covered squares 
+	   and make a RECURSIVE CALL for every one of them (steps 2-3)
+
+Chording Algorithm
+	-If a cell is open and has adjacent cells containg mines: 
+		-Count neighboring cells that are flagged 
+		-If number of flagged cells == number of mined cells:
+			-Open all adjacent cells (this can lose the game if flags are not placed
+			 correctly)
